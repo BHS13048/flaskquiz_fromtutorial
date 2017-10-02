@@ -28,6 +28,7 @@ def shuffle(q):
   if current_selection not in selected_keys:
    selected_keys.append(current_selection)
    i = i+1
+ print(selected_keys)
  return selected_keys
 
 @app.route('/')
@@ -35,7 +36,7 @@ def quiz():
  questions_shuffled = shuffle(questions)
  for i in questions.keys():
   random.shuffle(questions[i])
- return render_template('main.html', i = questions_shuffled, o = questions)
+ return render_template('main.html', q = questions_shuffled, o = questions)
 
 
 @app.route('/quiz', methods=['POST'])

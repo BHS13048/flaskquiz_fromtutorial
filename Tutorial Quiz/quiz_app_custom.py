@@ -7,7 +7,7 @@ app = Flask(__name__)
 question_no = 0
 correct_answers = 0
 incorrect_answers = 0
-totalturns = 0
+turns = 15
 question = ""
 flag = True
 age_flag=False
@@ -49,7 +49,7 @@ def realage():
         return print('Not a number between 101 and 0') '''
 
 @app.route('/')
-def questionchoosing(): #global is the importing of variables outside the definition
+def homepage(): #global is the importing of variables outside the definition
 
     question_answer_no = randrange(0,len(question_list)) #selects a question in random order
     question = question_list[question_answer_no] #sets the question to the random one
@@ -58,6 +58,20 @@ def questionchoosing(): #global is the importing of variables outside the defini
     question_list.remove(question) 
     answer_list.remove(answer)    
     return render_template('main_test.html', q = question)
+
+@app.route('/quiz_test')
+def mainquiz(): #global is the importing of variables outside the definition
+    turns = turns - 1   
+    if turns == 0:
+        print("Finished")
+    else:
+        question_answer_no = randrange(0,len(question_list)) #selects a question in random order
+        question = question_list[question_answer_no] #sets the question to the random one
+        answer = answer_list[question_answer_no] #sets the answer to the one that matches the number of the question in the list, should work as long as the questions are in the matching order as the answers
+        question_list.remove(question) 
+        answer_list.remove(answer)
+ 
+        return render_template('main_test.html', q = question)
 
 ''' #user friendliness :)
 print("Welcome to my General Knowledge Quiz")
@@ -72,11 +86,10 @@ while age_flag==False:
     (space())
     (realage()) #calls for function that decides if the user has entered a valid age
     
-agegroup = (agegroup(age)) 
-turns = (turns(agegroup))
-totalturns = turns
+agegroup = (agegroup(age)) '''
 
-while flag ==True: #program ends when false
+
+''' while flag ==True: #program ends when false
     if turns == 1:
         flag = False
     else:
