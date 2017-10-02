@@ -19,7 +19,7 @@ question_list = [' Which country features a maple leaf on it’s flag?', 'Who wr
 answer_list = ['Canada', 'JK Rowling', 'Infinite Warfare Reveal Trailer', 'Cricket', 'Shot-put', 'Flux Capacitor', 'Turkey', 'Burnside High School', 'English', 'Michael Bay', 'The Shawshank Redemption', 'Breaking Bad', 'Apple', 'Eeyore', 'Pingu', '4', 'A school', '100']
 
 #definitions
-def space(): #unnecessary but did it for fun :)
+''' def space(): #unnecessary but did it for fun :)
     print("")
     
 def agegroup(_age):
@@ -46,22 +46,20 @@ def realage():
         else:
             return print('Not a number between 101 and 0')
     except ValueError:
-        return print('Not a number between 101 and 0')
+        return print('Not a number between 101 and 0') '''
 
+@app.route('/')
 def questionchoosing(): #global is the importing of variables outside the definition
-    global question_list
-    global answer_list
-    global question
-    global answer
-    global question_answer_list
+
     question_answer_no = randrange(0,len(question_list)) #selects a question in random order
     question = question_list[question_answer_no] #sets the question to the random one
     answer = answer_list[question_answer_no] #sets the answer to the one that matches the number of the question in the list, should work as long as the questions are in the matching order as the answers
     #removes the question and answer chosen from the list so the user does not have it repeated.
     question_list.remove(question) 
     answer_list.remove(answer)    
+    return render_template('main_test.html', q = question)
 
-#user friendliness :)
+''' #user friendliness :)
 print("Welcome to my General Knowledge Quiz")
 (space())
 name = input("What is your name?")
@@ -109,4 +107,7 @@ try:
         print("Congratulations!!!")    
 except ZeroDivisionError: #removes the error of anything divided by 0 breaking the program
     print("You received a percentage of 0%")
-    print("Were you even trying?!?")
+    print("Were you even trying?!?") '''
+
+if __name__ == '__main__':
+ app.run(debug=True)
