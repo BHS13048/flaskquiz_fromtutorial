@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request
 import random, copy
+turns = 15
+correct = 0
+current_question = ""
 
 app = Flask(__name__)
 
@@ -25,37 +28,34 @@ def home_page():
 @app.route('/quiz')
 def quiz():
 	print('gets here')
-	turns = 15
+	global turns
+	global current_question
 	if turns == 0:
+		turns = 15
 		return render_template('index.html')
 	else:
 		turns = turns - 1
 		print(turns)
-		questions_shuffled = random.choice(list(questions)) #calls for definition, substitutes q for questions.
-		print(questions_shuffled)
-
+		current_question = random.choice(list(original_questions)) #calls for definition, substitutes q for questions.
+		#print(current_question)
+		print(current_question)
 		for i in questions:
 			random.shuffle(questions[i])
-			print('gets to this stage')
+		print('gets to this stage')
 
-		#questions.pop(questions_shuffled) #removes the question from the dictionary - currently not working as it also removes the multiple choices
-		return render_template('quiz-page.html', q = questions_shuffled, o = questions)
+ #removes the question from the dictionary - currently not working as it also removes the multiple choices
+		return render_template('quiz-page.html', q = current_question, o = questions)
 
-@app.route('/quiz_test')
-def mainquiz(): #global is the importing of variables outside the definition
-	if request.method == 'GET':
-		print('yes')
-	else:
-		if turns == 0:
-			print("Finished")
-		else:
-			question_answer_no = randrange(0,len(question_list)) #selects a question in random order
-			question = question_list[question_answer_no] #sets the question to the random one
-			answer = answer_list[question_answer_no] #sets the answer to the one that matches the number of the question in the list, should work as long as the questions are in the matching order as the answers
-			question_list.remove(question) 
-			answer_list.remove(answer)
-
-		return render_template('main_test.html', q = question)
+@app.route('/quiz_test', methods=['POST'])
+def quiz_answers():
+	global correct
+	for i in questions.keys():
+		user_answer = request.form.get("answer")
+		if original_questions[i][0] == user_answer:
+			correct = correct + 1
+	print(correct)
+	return quiz()
+	#'<h1>Correct Answers: <u>'+str(correct)+'</u></h1>'
 
 if __name__ == '__main__':
 	app.run(debug=True)
