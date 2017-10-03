@@ -1,0 +1,171 @@
+/* ---------- Home Buttons ---------- */
+
+
+/* ---------- Forms ---------- */
+
+
+}
+input.incorrect{
+	background-color: red;
+}
+
+input:hover {
+    background-color: lightgrey;
+}
+
+/* ---------- Header ----------*/
+
+#header {
+
+    text-align:center;
+	height: 22.7em;
+
+	font-family:'quicksand-bold';
+	color:white;
+	font-size:150%;
+    background-image:url("/static/images/home.png");     /* : linear-gradient(#1D6EAA, #1D6EAA, #83C3F2);*/
+}
+#quizbutton {
+    width: 100%;
+    background-color:#50961D;
+    color: white;
+    padding:20px 55px ;
+    margin: auto 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+	font-family: 'quicksand';
+	font-size: 150%;
+	float:center;
+}
+#quizbutton:hover {
+	background-color:#89BB64;
+}
+
+/* ---------- Page Background Pattern and Page Padding ---------- */
+
+#wholepage {
+	padding: 40px;
+	background-color: #fff; 
+	background-image: 
+	linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+	linear-gradient(#eee .1em, transparent .1em);
+	background-size: 100% 1.2em;
+}
+
+/* ---------- All Content ---------- */
+
+#pagecontent {
+	height:100%;
+    width: 750px;
+    margin:auto;
+    /*- box-shadow: 10px 10px 10px black; -*/
+	font-family: 'quicksand';
+	background-color:#5FCAF9;
+	font-size: 110%;
+	
+}
+
+/* ---------- Style for selected divs and words ---------- */
+
+/* ---------- Importing the fonts and applying them to some pages ---------- */
+
+@font-face {
+	font-family: 'quicksand';
+	src: url('Quicksand-Regular.otf');
+}
+@font-face {
+	font-family: 'quicksand-bold';
+	src: url('Quicksand-Bold.otf');
+}
+#valve_description {
+	font-family: 'quicksand';
+}
+
+#customer_details {
+	font-family: 'quicksand';
+}
+
+}
+
+h1, h2, h3, label, #nav, #footer {
+	font-family: 'quicksand';
+	
+}
+
+/* ---------- Section that contains the content ---------- */
+
+#section {
+    width:0 auto;
+	height: 40%;
+    float:;
+    padding: 20px;
+	color:white;
+	background-color:#5ca02a;
+	
+}
+#question {
+	width:0 auto;
+	text-align:center;
+	height: 350px;
+	padding: 20px;
+	font-family:'quicksand-bold';
+	color:white;
+	font-size:300%;
+    /* background: linear-gradient(blue, white); */
+	background-image:url("/static/images/quizpage.gif");
+
+}	
+
+#questions {
+	margin: 5%;
+	font-weight: bold;
+	color: #000000;
+	margin: 30px;
+	background-color: #ffffff;
+	opacity: 0.6;
+}
+
+
+#answers {
+	width:0 auto;
+	height:55%;
+	float:center;
+	padding:10px;
+	color:white;
+	background-color:#5ca02a;
+}
+
+}
+#user-question {
+	width:0 auto;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color:#50961D;
+    color: white;
+    padding:55px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+	font-family: 'quicksand';
+	font-size: 110%;
+	float:center;
+}
+/* ---------- Buttons ---------- */
+
+
+
+/* ---------- Footer ---------- */
+
+#footer {
+    background-color: #50961D;
+    color: white;
+    clear:both;
+    text-align:center;
+	padding:20px;
+	padding:20px;
+	font-family: 'quicksand';
+}

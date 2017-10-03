@@ -34,8 +34,10 @@ def shuffle(q):
 @app.route('/')
 def quiz():
  questions_shuffled = shuffle(questions)
+ print(questions_shuffled)
  for i in questions.keys():
   random.shuffle(questions[i])
+
  return render_template('main.html', q = questions_shuffled, o = questions)
 
 
